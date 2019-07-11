@@ -31,13 +31,13 @@ var controller = (function(bundgetCtrl, UICtrl) {
 
       //5 display the budget on the UI
 
-        console.log('It works bitches');
+        console.log('It works');
     }
 
   document.querySelector('.add__btn').addEventListener('click', ctrlAddItem)
 
   //this will allow users to add the input by pressing 'enter'
-  //note we are using even.which (for older browsers sane thing as event.keycode)
+  //note we are using even.which (for older browsers same thing as event.keycode)
   document.addEventListener('keypress', function(event) {
     if (event.keyCode === 13 || event.which === 13) {
         ctrlAddItem();
