@@ -10,15 +10,24 @@ var budgetController = (function() {
 //UI CONTROLLER
 var UIController = (function() {
 
+    var DOMstrings = {
+        inputType: '.add__type',
+        inputDescription: '.add__description',
+        inputValue: '.add__value',
+        inputBtn: '.add__btn'
+
+    };
+
     return {
-        getinput: function () {
+        getInput: function(){
             return {
-
-                type: document.querySelector('.add__type').value, //will be either inc or exp
-                description:  document.querySelector('.add__description').value,
-                value: document.querySelector('.add__value').value,
-
-            };
+                type: document.querySelector(DOMstrings.inputType).value, //will be either inc or exp
+                description: document.querySelector(DOMstrings.inputDescription).value,
+                value: document.querySelector(DOMstrings.inputValue).value,
+            };     
+        },
+        getDOMstrings: function() {
+            return DOMstrings;
         }
     };
 
@@ -29,14 +38,13 @@ var UIController = (function() {
 //GLOBAL APP CONTROLLER
 
 var controller = (function(bundgetCtrl, UICtrl) {
-
+    var DOM = UICtrl.getDOMstrings();
     //dry - dont repeat yourself - so we are creting a function to re-use later
     var ctrlAddItem = function() {
 
         //1 Get the field input data
 
-        var input = UICtrl.getInput
-
+        var input = UICtrl.getInput();
         console.log(input);
 
       //2 add the item to the budget controller
@@ -47,9 +55,10 @@ var controller = (function(bundgetCtrl, UICtrl) {
 
       //5 display the budget on the UI
 
+    
     }
 
-  document.querySelector('.add__btn').addEventListener('click', ctrlAddItem)
+  document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem)
 
   //this will allow users to add the input by pressing 'enter'
   //note we are using even.which (for older browsers same thing as event.keycode)
@@ -58,7 +67,7 @@ var controller = (function(bundgetCtrl, UICtrl) {
         ctrlAddItem();
         }
 
-
+        
   });
 
 
