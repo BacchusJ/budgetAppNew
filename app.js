@@ -77,6 +77,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     };
     
     return {
+        // initialization function
         init: function() {
             console.log('Application has started');
             setupEventListener();
