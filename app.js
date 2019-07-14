@@ -36,9 +36,27 @@ var UIController = (function() {
 
 
 //GLOBAL APP CONTROLLER
+/*we are passing two parametters in the controller's function and calling them at the
+bottom. */
+var controller = (function(budgetCtrl, UICtrl) {
 
-var controller = (function(bundgetCtrl, UICtrl) {
-    var DOM = UICtrl.getDOMstrings();
+    var setupEventListener = function() {
+
+        var DOM = UICtrl.getDOMstrings();
+
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem)
+
+        //this will allow users to add the input by pressing 'enter'
+        //note we are using even.which (for older browsers same thing as event.keycode)
+        document.addEventListener('keypress', function(event) {
+          if (event.keyCode === 13 || event.which === 13) {
+              ctrlAddItem();
+              }   
+        });
+    }
+
+
+    
     //dry - dont repeat yourself - so we are creting a function to re-use later
     var ctrlAddItem = function() {
 
@@ -56,20 +74,14 @@ var controller = (function(bundgetCtrl, UICtrl) {
       //5 display the budget on the UI
 
     
-    }
-
-  document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem)
-
-  //this will allow users to add the input by pressing 'enter'
-  //note we are using even.which (for older browsers same thing as event.keycode)
-  document.addEventListener('keypress', function(event) {
-    if (event.keyCode === 13 || event.which === 13) {
-        ctrlAddItem();
-        }
-
-        
-  });
-
-
+    };
     
+    return {
+        init: function() {
+            console.log('Application has started');
+            setupEventListener();
+        }
+    }
 })(budgetController, UIController);
+
+controller.init();
