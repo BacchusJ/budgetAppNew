@@ -1,7 +1,13 @@
 
 //BUDGET CONTROLLER
 var budgetController = (function() {
+    //function constructor - see the var name starts with a capital letter to distiguish it from other functions
+    var Expense = function(id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
 
+    }
 
 
 })();
@@ -61,10 +67,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     var ctrlAddItem = function() {
 
         //1 Get the field input data
-
         var input = UICtrl.getInput();
-        console.log(input);
-
       //2 add the item to the budget controller
 
       //3 add the new item to the new UI 
