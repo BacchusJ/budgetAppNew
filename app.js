@@ -15,7 +15,7 @@ var budgetController = (function() {
         this.value = value;
     };
 
-    var date = {
+    var data = {
         allItems: {
             exp: [],
             inc:[]
