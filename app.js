@@ -1,17 +1,32 @@
 
-//BUDGET CONTROLLER
+
+// BUDGET CONTROLLER
 var budgetController = (function() {
     //function constructor - see the var name starts with a capital letter to distiguish it from other functions
     var Expense = function(id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
+    };
 
+    var Income = function(id, description, value) {
+        this.id = id; 
+        this.description = description;
+        this.value = value;
+    };
+
+    var date = {
+        allItems: {
+            exp: [],
+            inc:[]
+        },
+        totals: {
+            exp: 0,
+            inc: 0
+        }
     }
 
-
 })();
-
 
 //UI CONTROLLER
 var UIController = (function() {
@@ -38,6 +53,7 @@ var UIController = (function() {
     };
 
 })();
+
 
 
 
