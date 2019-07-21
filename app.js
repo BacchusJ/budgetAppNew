@@ -91,7 +91,7 @@ var UIController = (function() {
             }   
             //replace the placeholder text with some actual data
             newHtml = html.replace('%id%', obj.id);
-            newHtml = newHtml.replace('%description', obj.description);
+            newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', obj.value);
 
 
@@ -143,6 +143,7 @@ var controller = (function(budgetCtrl, UICtrl) {
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
       //3 add the new item to the new UI 
+      UICtrl.addListItem(newItem, input.type);
 
       //4 calculate the budget
 
