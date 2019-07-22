@@ -66,7 +66,7 @@ var UIController = (function() {
         inputValue: '.add__value',
         inputBtn: '.add__btn',
         incomeContainer:'.income__list',
-        expenseContainer: '.expenses__list'
+        expensesContainer: '.expenses__list'
 
     };
 
@@ -86,7 +86,7 @@ var UIController = (function() {
                 element = DOMstrings.incomeContainer;
                 html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else if (type === 'exp') {
-                element = DOMstrings.expenseContainer;
+                element = DOMstrings.expensesContainer;
                 html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }   
             //replace the placeholder text with some actual data
@@ -102,6 +102,22 @@ var UIController = (function() {
 
 
         },
+
+        clearFields: function() {
+            var fields, fieldsArr;
+            fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
+
+        
+            //this will turn the list above into an array using the slice method
+            //which is a prototype of the Array =) SOOOO COOL!~!!!!!!!
+           fieldsArr = Array.prototype.slice.call(fields);
+            //this function can receive up to three arguments 
+           fieldsArr.forEach(function() {
+
+           });
+
+        },
+
         getDOMstrings: function() {
             return DOMstrings;
         }
