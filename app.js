@@ -112,9 +112,12 @@ var UIController = (function() {
             //which is a prototype of the Array =) SOOOO COOL!~!!!!!!!
            fieldsArr = Array.prototype.slice.call(fields);
             //this function can receive up to three arguments 
-           fieldsArr.forEach(function() {
-
+           fieldsArr.forEach(function(current, index, array) {
+                current.value = "";
            });
+           //this will set the cursor back to the "Add description box"
+           //instead of leaving it in the "value box"
+           fieldsArr[0].focus();
 
         },
 
@@ -160,10 +163,11 @@ var controller = (function(budgetCtrl, UICtrl) {
 
       //3 add the new item to the new UI 
       UICtrl.addListItem(newItem, input.type);
+      //4 clear up the  fields
+      UICtrl.clearFields();
+      //5 calculate the budget
 
-      //4 calculate the budget
-
-      //5 display the budget on the UI
+      //6 display the budget on the UI
 
     
     };
