@@ -50,6 +50,18 @@ var budgetController = (function() {
             return newItem;
         },
 
+        calculateBudget: function() {
+
+            // calculate total income and expenses 
+
+            //calculate the budget: income -expenses
+
+            // calculate the % of income that has been spent
+
+        },
+
+
+
         testing: function() {
             console.log(data);
         }
