@@ -70,7 +70,7 @@ var budgetController = (function() {
             //calculate the budget: income -expenses
             data.budget = data.totals.inc - data.totals.exp;
 
-            if (data.totals.exp.inc > 0) {
+            if (data.totals.inc > 0) {
                 // calculate the % of income that has been spent
             //make sure you round the percentage - only if for the expense 
             data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
@@ -250,7 +250,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     return {
         // initialization function
         init: function() {
-            // console.log('Application has started');
+            console.log('Application has started');
             setupEventListener();
         }
     }
