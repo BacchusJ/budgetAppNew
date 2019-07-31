@@ -166,7 +166,7 @@ var UIController = (function() {
 
         },
 
-        displaybudget: function(obj) {
+        displayBudget: function(obj) {
 
             document.querySelector(DOMstrings.budgetLabel).textContent = obj.budget;
             document.querySelector(DOMstrings.incomeLabel).textContent = obj.totalInc;
@@ -216,7 +216,7 @@ var controller = (function(budgetCtrl, UICtrl) {
 
         //7 display the budget on the UI
 
-        console.log(budget);
+        UICtrl.displayBudget(budget);
 
     };
 
